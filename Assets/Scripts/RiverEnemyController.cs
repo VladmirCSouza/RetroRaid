@@ -3,13 +3,11 @@
 public class RiverEnemyController : VehicleController {
 
     [SerializeField] private bool facingRight;
-    [SerializeField] GameObject explosion;
 
     // Use this for initialization
     public override void Start()
     {
         base.Start();
-        speed = Speeds.NORMAL;
     }
 
     // Update is called once per frame
