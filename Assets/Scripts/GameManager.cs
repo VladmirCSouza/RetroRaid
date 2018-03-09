@@ -52,6 +52,10 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (GameState.PAUSE == currState)
+            return;
+
         if (player.position.z > 300)
         {
             if (OnPlayerReachLimit != null)

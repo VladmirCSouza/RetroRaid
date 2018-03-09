@@ -63,6 +63,10 @@ public class PlayerController : VehicleController {
             case "WALL":
                 Explode(playerModel);
                 break;
+            case "ENEMY":
+                Explode(playerModel);
+                other.GetComponent<VehicleController>().Explode();
+                break;                
             default:
                 break;
         }

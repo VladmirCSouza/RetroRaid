@@ -33,6 +33,12 @@ public class VehicleController : MonoBehaviour {
         rigidbody.MovePosition(rigidbody.position + movement);
     }
 
+    public void Flip()
+    {
+        speed *= -1;
+        transform.localScale = new Vector3(Mathf.Sign(speed), 1, 1);
+    }
+
     public void Explode()
     {
         Instantiate(explosion, transform.position, transform.rotation);

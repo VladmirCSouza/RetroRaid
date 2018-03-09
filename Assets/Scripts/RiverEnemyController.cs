@@ -2,26 +2,26 @@
 
 public class RiverEnemyController : VehicleController {
 
-    [SerializeField] private bool facingRight;
+    [SerializeField] private bool facingLeft;
 
     // Use this for initialization
     public override void Start()
     {
+        if (facingLeft)
+            Flip();
+
         base.Start();
     }
 
     // Update is called once per frame
     void Update () {
-		
 	}
 
     private void FixedUpdate()
     {
-        //vSpeed = speed * Time.deltaTime;
-        //hSpeed = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        //Vector3 movement = transform.right * hSpeed + Vector3.forward * vSpeed;
+        Vector3 movement = transform.right * speed * Time.deltaTime;
 
-        //Move(movement);
+        Move(movement);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,9 +29,10 @@ public class RiverEnemyController : VehicleController {
         switch (other.tag)
         {
             case "WALL":
-                //ChangeDirection
+                Flip();
                 break;
             case "BULLET":
+                Destroy(other.gameObject);
                 Explode();
                 break;
             default:

@@ -10,6 +10,9 @@ TagManager:
   - inGameItem
   - wall
   - bridge
+  - BULLET
+  - FUEL
+  - ENEMY
   layers:
   - Default
   - TransparentFX

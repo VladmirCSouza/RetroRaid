@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114828608065372046}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: tiro
+  m_TagString: BULLET
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

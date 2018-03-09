@@ -3,9 +3,11 @@
 public class BulletController : MonoBehaviour {
 
     [SerializeField] private float speed = 25f;
-    [SerializeField] private float gravity = 0.1f;
-    private new Rigidbody rigidbody;
+    //[SerializeField] private float gravity = 0.1f;
+    [SerializeField] private float maxDistance = 40f;
+    private float zInitalPosition = 0;
 
+    private new Rigidbody rigidbody;
     private GameObject explosion;
 
     private void OnEnable()
@@ -22,27 +24,41 @@ public class BulletController : MonoBehaviour {
     void Start () {
         rigidbody = GetComponent<Rigidbody>();
         explosion = gameObject.transform.GetChild(0).gameObject;
+        zInitalPosition = transform.position.z;
 	}
 
     void Update()
     {
-        if (rigidbody.position.y < 0)
+        if(zInitalPosition + maxDistance < transform.position.z)
         {
             explosion.transform.parent = null;
             explosion.transform.localScale = Vector3.one;
             explosion.SetActive(true);
             Destroy(gameObject);
         }
+
+        //if (rigidbody.position.y < 0)
+        //{
+        //    explosion.transform.parent = null;
+        //    explosion.transform.localScale = Vector3.one;
+        //    explosion.SetActive(true);
+        //    Destroy(gameObject);
+        //}
     }
 
     private void FixedUpdate()
     {
-        Vector3 movement = (transform.forward * speed + transform.up * gravity) * Time.deltaTime;
+        //Código comentado usado com lógica de gravidade
+        //Qdo a bala atingir o rio ela explode
+        //Substituido por código onde o que mandá é a distância percorrida pelo tiro
+        //Vector3 movement = (transform.forward * speed + transform.up * gravity) * Time.deltaTime;
+        Vector3 movement = transform.forward * speed * Time.deltaTime;
         rigidbody.MovePosition(rigidbody.position + movement);
     }
 
     private void ResetPosition(float zMaxDistance)
     {
+        zInitalPosition -= zMaxDistance;
         this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z - zMaxDistance);
     }
 }
