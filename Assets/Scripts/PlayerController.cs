@@ -61,12 +61,15 @@ public class PlayerController : VehicleController {
         switch (other.tag)
         {
             case "WALL":
-                Explode(playerModel);
+                ///Explode(playerModel);
                 break;
             case "ENEMY":
                 Explode(playerModel);
                 other.GetComponent<VehicleController>().Explode();
-                break;                
+                break;
+            case "BRIDGE":
+                Explode(playerModel);
+                break;
             default:
                 break;
         }

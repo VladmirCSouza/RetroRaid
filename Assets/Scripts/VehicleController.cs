@@ -52,7 +52,7 @@ public class VehicleController : MonoBehaviour {
     }
 
     private void ResetPosition(float zMaxDistance)
-    {
+    {        
         this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z - zMaxDistance);
     }
 }

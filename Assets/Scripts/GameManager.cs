@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        zMaxDistance = (howManyBaseElements - 1) * 150;//150 é o tamanho dos elementos base
+        zMaxDistance = (howManyBaseElements - 1) * 65;//65 é o tamanho dos elementos base
     }
 	
 	// Update is called once per frame
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour {
         if (GameState.PAUSE == currState)
             return;
 
-        if (player.position.z > 300)
+        if (player.position.z > zMaxDistance)
         {
             if (OnPlayerReachLimit != null)
                 OnPlayerReachLimit(zMaxDistance);

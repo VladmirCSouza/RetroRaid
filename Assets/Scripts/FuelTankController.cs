@@ -13,6 +13,7 @@ public class FuelTankController : MonoBehaviour {
                 explosion.SetActive(true);
                 Destroy(explosion, 2.5f);
                 Destroy(gameObject);
+                Destroy(other.gameObject);
                 break;
             default:
                 break;

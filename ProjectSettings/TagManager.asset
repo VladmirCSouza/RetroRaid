@@ -5,14 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - WALL
-  - tiro
-  - enemy
-  - inGameItem
-  - wall
-  - bridge
   - BULLET
   - FUEL
   - ENEMY
+  - BRIDGE
   layers:
   - Default
   - TransparentFX
