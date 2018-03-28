@@ -46,6 +46,8 @@ public class CameraController : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        if (player == null)
+            return;
         ChangeView();
     }
 

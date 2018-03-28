@@ -4,19 +4,7 @@
 public class StagesScriptableObjects : ScriptableObject
 {
 
-    //public int[] teste;
-
     public ArrayLayout data;
-
-    //private int[,] stageBase = new int[13,13];
-
-
-    public void ShowValue(int row, int column, int value)
-    {
-        //stageBase[row, column] = value;
-        //Debug.Log("row: " + row + " / Col: " + column + " / Value: " + stageBase[row, column]);
-        Debug.Log(data.rows[column].row[row]);
-    }
 
     /// <summary>
     /// Configura valores no array que gera o cenário

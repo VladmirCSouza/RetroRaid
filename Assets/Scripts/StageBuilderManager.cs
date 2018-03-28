@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -29,11 +28,6 @@ public class StageBuilderManager : MonoBehaviour {
             currentStagesDesign.Add(stageDeisng);
             bsb.UpdateStageDesign(stageDeisng);
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     private void ChangeStagePosition(float zMaxPosition)

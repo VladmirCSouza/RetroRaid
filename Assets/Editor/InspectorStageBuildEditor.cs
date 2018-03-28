@@ -62,7 +62,6 @@ public class InspectorStageBuildEditor : Editor {
                 if (GUILayout.Button(btn,minButtonWidth))
                 {
                     obj.SetValue(i, j, row.GetArrayElementAtIndex(i).intValue);
-                    obj.ShowValue(i, j, row.GetArrayElementAtIndex(i).intValue);
                 }
 
             }
