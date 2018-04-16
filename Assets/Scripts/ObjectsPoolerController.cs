@@ -21,13 +21,19 @@ public class ObjectsPoolerController : MonoBehaviour {
     public void Awake()
     {
         Instance = this;
+        Init();
     }
 
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
-
+    
 	// Use this for initialization
 	void Start () {
+        
+	}
+
+    private void Init()
+    {
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
         foreach (Pool pool in pools)
@@ -42,10 +48,12 @@ public class ObjectsPoolerController : MonoBehaviour {
             }
             poolDictionary.Add(pool.tag, objectPool);
         }
-	}
+    }
 
     public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
+        if (poolDictionary == null)
+            return null;
         if (!poolDictionary.ContainsKey(tag))
         {
             Debug.LogWarning("Pool with tag " + tag + "doesn't exist");

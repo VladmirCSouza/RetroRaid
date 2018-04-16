@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 [RequireComponent (typeof(VehicleController))]
 public class PlayerController : VehicleController {
@@ -7,19 +8,38 @@ public class PlayerController : VehicleController {
     private float hSpeed;
     private float vSpeed;
 
+    private Vector3 startPosition;
+
     public GameObject bullet;
     public Transform gunPoint;
     public GameObject playerModel;
 
+    //Death reset timer
+    private float timer;
+    private float delay = 1f;
+    private int count = 4;
+
     // Use this for initialization
     public override void Start ()
     {
+        timer = Time.time;
+
         base.Start();
         speed = Speeds.NORMAL;
+        startPosition = transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(count > 0 && delay < (Time.time - timer))
+        {
+            timer = Time.time;
+            count--;
+            //Debug.Log(count);
+        }
+
+        
         SetAnimation(Input.GetAxisRaw("Horizontal"));
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -56,12 +76,17 @@ public class PlayerController : VehicleController {
         Instantiate(bullet, gunPoint.position, gunPoint.rotation);
     }
 
+    public Vector3 GetStartPosition()
+    {
+        return startPosition;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         switch (other.tag)
         {
             case "WALL":
-                ///Explode(playerModel);
+                Explode(playerModel);
                 break;
             case "ENEMY":
                 Explode(playerModel);

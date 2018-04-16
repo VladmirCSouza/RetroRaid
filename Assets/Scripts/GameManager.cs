@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 public enum GameState
 {
+    INIT,
     PLAYING,
     PAUSE,
-    GAME_OVER
+    GAME_OVER,
+    RESTART
 }
 
 public class GameManager : MonoBehaviour {
@@ -62,14 +63,4 @@ public class GameManager : MonoBehaviour {
                 OnPlayerReachLimit(zMaxDistance);
         }            
 	}
-
-    private void LateUpdate()
-    {
-        //if (player.position.z - 150 > gamePieces[0].transform.position.z)
-        //{
-        //    gamePieces.Add(Instantiate(piece, gamePieces[gamePieces.Count -1].transform.position + Vector3.forward * 150, transform.rotation) as GameObject);
-        //    Destroy(gamePieces[0]);
-        //    gamePieces.RemoveAt(0);
-        //}
-    }
 }

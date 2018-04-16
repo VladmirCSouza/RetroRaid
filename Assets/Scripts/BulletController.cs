@@ -31,10 +31,7 @@ public class BulletController : MonoBehaviour {
     {
         if(zInitalPosition + maxDistance < transform.position.z)
         {
-            explosion.transform.parent = null;
-            explosion.transform.localScale = Vector3.one;
-            explosion.SetActive(true);
-            Destroy(gameObject);
+            DestroyBullet();
         }
 
         //if (rigidbody.position.y < 0)
@@ -54,6 +51,20 @@ public class BulletController : MonoBehaviour {
         //Vector3 movement = (transform.forward * speed + transform.up * gravity) * Time.deltaTime;
         Vector3 movement = transform.forward * speed * Time.deltaTime;
         rigidbody.MovePosition(rigidbody.position + movement);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("WALL"))
+            DestroyBullet();
+    }
+
+    private void DestroyBullet()
+    {
+        explosion.transform.parent = null;
+        explosion.transform.localScale = Vector3.one;
+        explosion.SetActive(true);
+        Destroy(gameObject);
     }
 
     private void ResetPosition(float zMaxDistance)
