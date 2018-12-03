@@ -86,7 +86,7 @@ public class PlayerController : VehicleController {
         switch (other.tag)
         {
             case "WALL":
-                Explode(playerModel);
+                //Explode(playerModel);
                 break;
             case "ENEMY":
                 Explode(playerModel);
