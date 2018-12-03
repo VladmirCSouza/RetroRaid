@@ -2,7 +2,7 @@
 using UnityEditor;
 
 [CustomEditor(typeof(StagesScriptableObjects))]
-public class InspectorStageBuildEditor : Editor {
+public class RetroRaidStagesGeneration : Editor {
 
     private static GUILayoutOption minButtonWidth = GUILayout.Width(30f);
     private Texture blueTexture;

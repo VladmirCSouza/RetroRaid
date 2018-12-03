@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{C1F03179-7B18-654E-4763-FD6D86D930F7}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/StageBuilderManager.cs">
+    <Files>
+      <File FileName="Assets/Editor/RetroRaidStagesGeneration.cs" Line="29" Column="33" />
+      <File FileName="Assets/Scripts/StageBuilderManager.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
