@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts;
+using UnityEngine;
 
-public class BluePlaneController : VehicleController {
+public class BluePlaneController : VehicleController
+{
+
     [SerializeField] private float maxHeight = 4.5f;
     [SerializeField] private float minHeight = 1f;
     [SerializeField] private float distanceToGo = 40f;
@@ -36,7 +39,7 @@ public class BluePlaneController : VehicleController {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("WALL"))
+        if (other.CompareTag(GameTags.WALL))
             transform.position = new Vector3(transform.position.x, minHeight, transform.position.z);
     }
 
@@ -44,14 +47,12 @@ public class BluePlaneController : VehicleController {
     {
         switch (other.tag)
         {
-            case "WALL":
+            case GameTags.WALL:
                 transform.position = new Vector3(transform.position.x, maxHeight, transform.position.z);
                 break;
-            case "BULLET":
+            case GameTags.BULLET:
                 Destroy(other.gameObject);
                 Explode();
-                break;
-            default:
                 break;
         }
     }

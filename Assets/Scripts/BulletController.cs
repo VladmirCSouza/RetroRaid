@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts;
+using UnityEngine;
 
 public class BulletController : MonoBehaviour {
 
@@ -55,7 +56,7 @@ public class BulletController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("WALL"))
+        if (other.CompareTag(GameTags.WALL))
             DestroyBullet();
     }
 
