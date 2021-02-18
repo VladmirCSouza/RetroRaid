@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts;
+using UnityEngine;
 
 public class BridgeExplosionController : MonoBehaviour {
 
@@ -6,7 +7,7 @@ public class BridgeExplosionController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("BULLET"))
+        if (other.CompareTag(GameTags.BULLET))
         {
             explosion.transform.parent = null;
             explosion.SetActive(true);

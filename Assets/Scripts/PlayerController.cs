@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using Assets.Scripts;
 
 [RequireComponent (typeof(VehicleController))]
 public class PlayerController : VehicleController {
@@ -39,7 +40,6 @@ public class PlayerController : VehicleController {
             //Debug.Log(count);
         }
 
-        
         SetAnimation(Input.GetAxisRaw("Horizontal"));
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -85,17 +85,15 @@ public class PlayerController : VehicleController {
     {
         switch (other.tag)
         {
-            case "WALL":
-                //Explode(playerModel);
+            case GameTags.WALL:
+                Explode(playerModel);
                 break;
-            case "ENEMY":
+            case GameTags.ENEMY:
                 Explode(playerModel);
                 other.GetComponent<VehicleController>().Explode();
                 break;
-            case "BRIDGE":
+            case GameTags.BRIDGE:
                 Explode(playerModel);
-                break;
-            default:
                 break;
         }
     }

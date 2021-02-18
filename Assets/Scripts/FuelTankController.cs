@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts;
+using UnityEngine;
 
 public class FuelTankController : MonoBehaviour {
 
@@ -8,14 +9,12 @@ public class FuelTankController : MonoBehaviour {
     {
         switch (other.tag)
         {
-            case "BULLET":
+            case GameTags.BULLET:
                 explosion.transform.parent = null;
                 explosion.SetActive(true);
                 Destroy(explosion, 2.5f);
                 Destroy(gameObject);
                 Destroy(other.gameObject);
-                break;
-            default:
                 break;
         }
     }

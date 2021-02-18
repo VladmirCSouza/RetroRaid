@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts;
+using UnityEngine;
 
 public class RiverEnemyController : VehicleController {
 
@@ -28,14 +29,12 @@ public class RiverEnemyController : VehicleController {
     {
         switch (other.tag)
         {
-            case "WALL":
+            case GameTags.WALL:
                 Flip();
                 break;
-            case "BULLET":
+            case GameTags.BULLET:
                 Destroy(other.gameObject);
                 Explode();
-                break;
-            default:
                 break;
         }
     }
